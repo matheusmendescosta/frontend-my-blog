@@ -3,18 +3,13 @@
 import { useSignIn } from "./use-sign-in";
 
 export const SignInForm = () => {
-  const { errors, handleSubmit, isSubmitting, register } = useSignIn();
+  const { handleSubmit, register } = useSignIn();
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <img
-            className="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt="Your Company"
-          />
           <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign in to your account
+            Sign in to my brain
           </h2>
         </div>
 
@@ -89,7 +84,7 @@ export const SignInForm = () => {
               </div>
             </form>
 
-            <div>
+            {/* <div>
               <div className="relative mt-10">
                 <div
                   className="absolute inset-0 flex items-center"
@@ -157,7 +152,7 @@ export const SignInForm = () => {
                   </span>
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

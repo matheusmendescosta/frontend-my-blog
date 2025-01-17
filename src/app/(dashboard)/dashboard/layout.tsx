@@ -5,7 +5,7 @@ const RequiredLayout = async ({
   session,
 }: {
   children: React.ReactNode;
-  session: any;
+  session: { user: { name: string; email: string }; token: string };
 }) => {
   return <DefaultProvider session={session}>{children}</DefaultProvider>;
 };
