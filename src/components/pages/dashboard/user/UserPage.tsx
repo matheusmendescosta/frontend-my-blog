@@ -3,7 +3,7 @@ type UserPageProps = {
 };
 
 const UserPage = ({ userId }: UserPageProps) => {
-  return <div>UserPage</div>;
+  return <div>UserPage: {userId}</div>;
 };
 
 export default UserPage;
