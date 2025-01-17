@@ -1,3 +1,5 @@
+import { AppSidebar } from "@/components/layout/app-sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { DefaultProvider } from "@/providers/DefaultProvider";
 
 export const RequiredLayout = async ({
@@ -11,7 +13,17 @@ export const RequiredLayout = async ({
     expires: string;
   };
 }) => {
-  return <DefaultProvider session={session}>{children}</DefaultProvider>;
+  return (
+    <DefaultProvider session={session}>
+      <SidebarProvider>
+        <AppSidebar />
+        <main>
+          <SidebarTrigger />
+          <div className="p-4">{children}</div>
+        </main>
+      </SidebarProvider>
+    </DefaultProvider>
+  );
 };
 
 export default RequiredLayout;
