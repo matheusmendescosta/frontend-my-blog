@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, Settings } from "lucide-react";
+import { ChartBarStacked, Home, Tag, UserRound } from "lucide-react";
 
 import {
   Sidebar,
@@ -21,9 +21,19 @@ const items = [
     icon: Home,
   },
   {
+    title: "Tags",
+    url: `/#`,
+    icon: Tag,
+  },
+  {
+    title: "Category",
+    url: `/#`,
+    icon: ChartBarStacked,
+  },
+  {
     title: "User",
     url: `/dashboard/user/[id]`,
-    icon: Settings,
+    icon: UserRound,
   },
 ];
 

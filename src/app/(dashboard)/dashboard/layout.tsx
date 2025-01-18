@@ -1,8 +1,9 @@
 import { AppSidebar } from "@/components/layout/app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { DefaultProvider } from "@/providers/DefaultProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
-export const RequiredLayout = async ({
+export const RequiredLayout = ({
   children,
   session,
 }: {
@@ -15,13 +16,20 @@ export const RequiredLayout = async ({
 }) => {
   return (
     <DefaultProvider session={session}>
-      <SidebarProvider>
-        <AppSidebar />
-        <main>
-          <SidebarTrigger />
-          <div className="p-4">{children}</div>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <main className="w-screen h-screen">
+          <SidebarProvider>
+            <AppSidebar />
+            <SidebarTrigger />
+            <div className="p-4 border w-4/5">{children}</div>
+          </SidebarProvider>
         </main>
-      </SidebarProvider>
+      </ThemeProvider>
     </DefaultProvider>
   );
 };
