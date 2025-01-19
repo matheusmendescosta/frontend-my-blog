@@ -16,20 +16,22 @@ export const RequiredLayout = ({
 }) => {
   return (
     <DefaultProvider session={session}>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="dark"
-        enableSystem
-        disableTransitionOnChange
-      >
-        <main className="w-screen h-screen">
-          <SidebarProvider>
-            <AppSidebar />
-            <SidebarTrigger />
-            <div className="p-4 border w-4/5">{children}</div>
-          </SidebarProvider>
-        </main>
-      </ThemeProvider>
+      <div className="w-screen h-screen">
+        <SidebarProvider>
+          <AppSidebar />
+          <SidebarTrigger />
+          <div className="p-4 border w-4/5">
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="dark"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </div>
+        </SidebarProvider>
+      </div>
     </DefaultProvider>
   );
 };
