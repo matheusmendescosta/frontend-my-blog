@@ -1,6 +1,7 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Terminal } from "lucide-react";
+import Link from "next/link";
 
 const DashboardHeaderSection = () => {
   return (
@@ -19,7 +20,9 @@ const DashboardHeaderSection = () => {
           </Alert>
         </div>
         <div className="flex pt-4 space-x-2">
-          <Button variant="outline">Create post</Button>
+          <Button variant="outline" asChild>
+            <Link href="/dashboard/posts/post/new">Create new post</Link>
+          </Button>
           <Button variant="outline">Create category</Button>
           <Button variant="outline">Create tag</Button>
           <div className="flex space-x-2 justify-end w-full">
