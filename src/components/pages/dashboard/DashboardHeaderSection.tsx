@@ -23,8 +23,12 @@ const DashboardHeaderSection = () => {
           <Button variant="outline" asChild>
             <Link href="/dashboard/posts/post/new">Create new post</Link>
           </Button>
-          <Button variant="outline">Create category</Button>
-          <Button variant="outline">Create tag</Button>
+          <Button variant="outline" asChild>
+            <Link href="/dashboard/categories/new">Create new category</Link>
+          </Button>
+          <Button variant="outline" asChild>
+            <Link href="/dashboard/tags/new">Create new tag</Link>
+          </Button>
           <div className="flex space-x-2 justify-end w-full">
             <Button variant="outline">see my posts</Button>
             <Button variant="outline">see my comments</Button>

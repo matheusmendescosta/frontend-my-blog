@@ -22,12 +22,12 @@ const items = [
   },
   {
     title: "Tags",
-    url: `/#`,
+    url: `/dashboard/tags`,
     icon: Tag,
   },
   {
     title: "Category",
-    url: `/#`,
+    url: `/dashboard/categories`,
     icon: ChartBarStacked,
   },
   {
