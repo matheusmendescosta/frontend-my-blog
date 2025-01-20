@@ -9,7 +9,13 @@ export const RequiredLayout = ({
 }: {
   children: React.ReactNode;
   session: {
-    user: { id: string; name: string; email: string; role: string };
+    user: {
+      id: string;
+      name: string;
+      email: string;
+      role: string;
+      token: string;
+    };
     token: string;
     expires: string;
   };

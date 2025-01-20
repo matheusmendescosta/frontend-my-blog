@@ -1,7 +1,5 @@
-import { getToken } from "next-auth/jwt";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { NextRequest } from "next/server";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -48,7 +46,7 @@ export const useNewTag = () => {
         } else {
           setIsSubmitting(false);
         }
-        response.json;
+        response.json();
       })
       .then((data) => {
         console.log(data);

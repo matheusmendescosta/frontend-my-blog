@@ -1,16 +1,15 @@
 "use client";
 
 import {
-  TableCaption,
-  TableHeader,
-  TableRow,
-  TableHead,
-  TableBody,
-  TableCell,
-  Table,
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
 } from "@/components/ui/table";
 import { useTags } from "./use-tags";
-import { DeleteIcon } from "lucide-react";
 
 const TagListSection = () => {
   const { tags } = useTags();
