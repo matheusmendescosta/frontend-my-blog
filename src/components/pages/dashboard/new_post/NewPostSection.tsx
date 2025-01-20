@@ -35,6 +35,8 @@ const MyEditor = () => {
     },
   ];
 
+  console.log('meu text', editorState)
+
   return (
     <div className="border mt-4 p-4 rounded-sm">
       <div className="space-x-2 mb-2">

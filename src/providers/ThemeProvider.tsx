@@ -7,6 +7,7 @@ export function ThemeProvider({
   children,
   ...props
 }: React.ComponentProps<typeof NextThemesProvider>) {
+  //TODO: This sucks
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
