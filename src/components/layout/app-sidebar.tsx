@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { ChartBarStacked, Home, Tag, UserRound } from "lucide-react";
+import { ChartBarStacked, Home, Tag, UserRound } from 'lucide-react';
 
 import {
   Sidebar,
@@ -11,35 +11,35 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import { useSession } from "next-auth/react";
+} from '@/components/ui/sidebar';
+import { useSession } from 'next-auth/react';
 
 const items = [
   {
-    title: "Home",
-    url: "/dashboard",
+    title: 'Home',
+    url: '/dashboard',
     icon: Home,
   },
   {
-    title: "Tags",
-    url: `/dashboard/tags`,
+    title: 'Tags',
+    url: '/dashboard/tags',
     icon: Tag,
   },
   {
-    title: "Category",
-    url: `/dashboard/categories`,
+    title: 'Category',
+    url: '/dashboard/categories',
     icon: ChartBarStacked,
   },
   {
-    title: "User",
-    url: `/dashboard/user/[id]`,
+    title: 'User',
+    url: '/dashboard/user/[id]',
     icon: UserRound,
   },
 ];
 
 export function AppSidebar() {
   const { data: session } = useSession();
-  const userId = session?.user?.id || "defaultId";
+  const userId = session?.user?.id || 'defaultId';
 
   return (
     <Sidebar>
@@ -51,7 +51,7 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url.replace("[id]", userId)}>
+                    <a href={item.url.replace('[id]', userId)}>
                       <item.icon />
                       <span>{item.title}</span>
                     </a>

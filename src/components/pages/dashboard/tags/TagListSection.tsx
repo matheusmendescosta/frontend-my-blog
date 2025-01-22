@@ -1,15 +1,7 @@
-"use client";
+'use client';
 
-import {
-    Table,
-    TableBody,
-    TableCaption,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table";
-import { useTags } from "./use-tags";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { useTags } from './use-tags';
 
 const TagListSection = () => {
   const { tags } = useTags();

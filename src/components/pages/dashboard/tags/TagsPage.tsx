@@ -1,5 +1,5 @@
-import TagListSection from "./TagListSection";
-import TagsHeaderPage from "./TagsHeaderPage";
+import TagListSection from './TagListSection';
+import TagsHeaderPage from './TagsHeaderPage';
 
 const TagsPage = () => {
   return (

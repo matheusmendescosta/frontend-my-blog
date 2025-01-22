@@ -1,14 +1,12 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const TagsHeaderPage = () => {
   return (
-    <div className="border rounded-sm shadow-sm text-white py-12">
+    <div className="rounded-sm border py-12 text-white shadow-sm">
       <div className="mx-auto px-4">
-        <h1 className="lg:text-4xl text-2xl font-bold mb-4">
-          Welcome to the Tag Management Page
-        </h1>
-        <p className="text-lg pb-4">Create and manage your tags easily.</p>
+        <h1 className="mb-4 text-2xl font-bold lg:text-4xl">Welcome to the Tag Management Page</h1>
+        <p className="pb-4 text-lg">Create and manage your tags easily.</p>
         <Button size="lg" variant="outline" asChild>
           <Link href="/dashboard/tags/new">create new tag</Link>
         </Button>

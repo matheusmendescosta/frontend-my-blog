@@ -1,7 +1,7 @@
-import { signIn, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { signIn, signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 type FormProps = {
   email: string;
@@ -24,13 +24,13 @@ export const useSignIn = () => {
   const submitSignIn = async (data: FormProps) => {
     setIsSubmitting(true);
 
-    signIn("credentials", {
+    signIn('credentials', {
       email: data.email,
       password: data.password,
       redirect: false,
     }).then((response) => {
       if (response?.ok) {
-        router.push("/dashboard");
+        router.push('/dashboard');
       } else {
         setIsSubmitting(false);
       }

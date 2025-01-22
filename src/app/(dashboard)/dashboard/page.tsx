@@ -1,4 +1,4 @@
-import DashboardPage from "@/components/pages/dashboard/DashboardPage";
+import DashboardPage from '@/components/pages/dashboard/DashboardPage';
 
 const Page = async () => {
   return <DashboardPage />;

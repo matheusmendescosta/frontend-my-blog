@@ -1,30 +1,28 @@
-"use client";
+'use client';
 
-import { tagDto } from "@/dto/tagDto";
-import { useCallback, useEffect, useState } from "react";
+import { tagDto } from '@/dto/tagDto';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useTags = () => {
   const [tags, setTags] = useState<tagDto[]>([]);
 
   const loadPosts = useCallback(() => {
-    fetch("http://localhost:3333/api/v1/tags")
+    fetch('http://localhost:3333/api/v1/tags')
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Fetch fail");
+          throw new Error('Fetch fail');
         }
         return response.json();
       })
       .then((data) => {
         if (data && Array.isArray(data.tags)) {
-          setTags(data.tags); // Corrige a estrutura dos dados
+          setTags(data.tags);
         } else {
-          console.error("Invalid response format:", data);
-          setTags([]); // Evita erros caso o formato esteja incorreto
+          console.error('Invalid response format:', data);
+          setTags([]);
         }
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   }, []);
 
   useEffect(() => {

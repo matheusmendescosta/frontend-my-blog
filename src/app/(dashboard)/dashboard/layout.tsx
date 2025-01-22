@@ -1,7 +1,7 @@
-import { AppSidebar } from "@/components/layout/app-sidebar";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { DefaultProvider } from "@/providers/DefaultProvider";
-import { ThemeProvider } from "@/providers/ThemeProvider";
+import { AppSidebar } from '@/components/layout/app-sidebar';
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { DefaultProvider } from '@/providers/DefaultProvider';
+import { ThemeProvider } from '@/providers/ThemeProvider';
 
 export const RequiredLayout = ({
   children,
@@ -22,17 +22,12 @@ export const RequiredLayout = ({
 }) => {
   return (
     <DefaultProvider session={session}>
-      <div className="w-screen h-screen">
+      <div className="h-screen w-screen">
         <SidebarProvider>
           <AppSidebar />
           <SidebarTrigger />
-          <div className="p-4 border w-4/5">
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              enableSystem
-              disableTransitionOnChange
-            >
+          <div className="w-4/5 border p-4">
+            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
               {children}
             </ThemeProvider>
           </div>

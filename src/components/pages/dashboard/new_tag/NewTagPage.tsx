@@ -1,5 +1,5 @@
-import TagHeaderPage from "./TagHeaderPage";
-import TagSectionForm from "./TagSectionForm";
+import TagHeaderPage from './TagHeaderPage';
+import TagSectionForm from './TagSectionForm';
 
 const NewTagPage = () => {
   return (
