@@ -26,7 +26,7 @@ export const useNewTag = () => {
 
     setIsSubmitting(true);
 
-    fetch('http://localhost:3333/api/v1/tag', {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/tag`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${session.user.token}`,

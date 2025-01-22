@@ -1,9 +1,15 @@
+'use client';
+
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
+import { UserContext } from '@/providers/UserProvider';
 import { Terminal } from 'lucide-react';
 import Link from 'next/link';
+import { useContext } from 'react';
 
 const DashboardHeaderSection = () => {
+  const userContext = useContext(UserContext);
+
   return (
     <div className="w-auto rounded-sm border p-6 shadow-md">
       <h1 className="py-2 text-4xl font-bold">Welcome to my brain administrator</h1>
@@ -11,7 +17,7 @@ const DashboardHeaderSection = () => {
         <div>
           <Alert>
             <Terminal className="h-4 w-4" />
-            <AlertTitle>Open your mind!</AlertTitle>
+            <AlertTitle>Hello {userContext.user.name} Open your mind!</AlertTitle>
             <AlertDescription>Tracks post metrics such as likes, comments and views</AlertDescription>
           </Alert>
         </div>

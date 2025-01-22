@@ -7,7 +7,7 @@ export const authOptions: AuthOptions = {
       name: 'Credentials',
       credentials: { email: {}, password: {} },
       authorize: async (credentials) => {
-        const response = await fetch('http://localhost:3333/api/v1/auth', {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -7,7 +7,7 @@ export const useTags = () => {
   const [tags, setTags] = useState<tagDto[]>([]);
 
   const loadPosts = useCallback(() => {
-    fetch('http://localhost:3333/api/v1/tags')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/tags`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Fetch fail');

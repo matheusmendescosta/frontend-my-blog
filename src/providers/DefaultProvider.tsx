@@ -1,7 +1,6 @@
 'use client';
 
 import { userDto } from '@/dto/userDto';
-import { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
 import { UserProvider } from './UserProvider';
 

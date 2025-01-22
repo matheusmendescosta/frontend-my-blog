@@ -12,7 +12,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { useSession } from 'next-auth/react';
+import { UserContext } from '@/providers/UserProvider';
+import { useContext } from 'react';
 
 const items = [
   {
@@ -38,8 +39,7 @@ const items = [
 ];
 
 export function AppSidebar() {
-  const { data: session } = useSession();
-  const userId = session?.user?.id || 'defaultId';
+  const userContext = useContext(UserContext);
 
   return (
     <Sidebar>
@@ -51,7 +51,7 @@ export function AppSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url.replace('[id]', userId)}>
+                    <a href={item.url.replace('[id]', userContext.user.id)}>
                       <item.icon />
                       <span>{item.title}</span>
                     </a>

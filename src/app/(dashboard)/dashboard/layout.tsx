@@ -10,7 +10,7 @@ const getCurrentUser = async (session: Session | null) => {
     return null;
   }
 
-  const response = await fetch(`http://localhost:3333/api/v1/user/${session.user.id}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/${session.user.id}`, {
     headers: {
       Authorization: `Bearer ${session.user.token}`,
     },

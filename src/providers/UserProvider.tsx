@@ -1,3 +1,5 @@
+'use client';
+
 import { userDto } from '@/dto/userDto';
 import React, { Dispatch, SetStateAction, useState } from 'react';
 

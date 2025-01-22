@@ -22,7 +22,7 @@ export const useSignUp = () => {
   const handlerSubmitTag = (data: FormProps) => {
     setIsSubmitting(true);
 
-    fetch('http://localhost:3333/api/v1/user', {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
