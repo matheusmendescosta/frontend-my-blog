@@ -1,8 +1,19 @@
 'use client';
 
+import { userDto } from '@/dto/userDto';
 import { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
+import { UserProvider } from './UserProvider';
 
-export const DefaultProvider = ({ children, session }: { children: React.ReactNode; session: Session | null }) => {
-  return <SessionProvider session={session}>{children}</SessionProvider>;
+type DefaultProviderProps = {
+  children: React.ReactNode;
+  user: userDto;
+};
+
+export const DefaultProvider = ({ children, user }: DefaultProviderProps) => {
+  return (
+    <SessionProvider>
+      <UserProvider user={user}>{children}</UserProvider>
+    </SessionProvider>
+  );
 };

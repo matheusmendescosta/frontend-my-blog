@@ -1,27 +1,35 @@
+import { authOptions } from '@/auth/auth-options';
 import { AppSidebar } from '@/components/layout/app-sidebar';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { DefaultProvider } from '@/providers/DefaultProvider';
 import { ThemeProvider } from '@/providers/ThemeProvider';
+import { getServerSession, Session } from 'next-auth';
 
-export const RequiredLayout = ({
-  children,
-  session,
-}: {
-  children: React.ReactNode;
-  session: {
-    user: {
-      id: string;
-      name: string;
-      email: string;
-      role: string;
-      token: string;
-    };
-    token: string;
-    expires: string;
-  };
-}) => {
+const getCurrentUser = async (session: Session | null) => {
+  if (!session) {
+    return null;
+  }
+
+  const response = await fetch(`http://localhost:3333/api/v1/user/${session.user.id}`, {
+    headers: {
+      Authorization: `Bearer ${session.user.token}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch user data');
+  }
+
+  const user = await response.json();
+  return user;
+};
+
+export const RequiredLayout = async ({ children }: { children: React.ReactNode }) => {
+  const session = await getServerSession(authOptions);
+  const currentUser = await getCurrentUser(session);
+
   return (
-    <DefaultProvider session={session}>
+    <DefaultProvider user={currentUser}>
       <div className="h-screen w-screen">
         <SidebarProvider>
           <AppSidebar />
