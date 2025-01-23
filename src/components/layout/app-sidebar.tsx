@@ -14,6 +14,8 @@ import {
 } from '@/components/ui/sidebar';
 import { UserContext } from '@/providers/UserProvider';
 import { useContext } from 'react';
+import DarkMode from '../ui/DarkMode';
+import { Separator } from '@radix-ui/react-separator';
 
 const items = [
   {
@@ -48,6 +50,11 @@ export function AppSidebar() {
           <SidebarGroupLabel>my brain</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
+              <div className="flex items-center py-4 pl-1">
+                <DarkMode />
+                <span className="pl-1">Theme</span>
+              </div>
+
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
