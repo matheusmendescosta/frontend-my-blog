@@ -59,17 +59,7 @@ export const SignInForm = () => {
                   />
                 </div>
               </div>
-              <div className="flex justify-between space-x-2">
-                <a
-                  href="/sign_up"
-                  className={twJoin(
-                    'flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white dark:bg-gray-900',
-                    'shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:hover:bg-gray-600',
-                    'bg-slate-600 hover:bg-slate-700 focus-visible:outline-indigo-600'
-                  )}
-                >
-                  Sign up
-                </a>
+              <div className="space-y-2">
                 <button
                   type="submit"
                   className={twJoin(
@@ -80,6 +70,16 @@ export const SignInForm = () => {
                 >
                   Sign in
                 </button>
+                <a
+                  href="/sign_up"
+                  className={twJoin(
+                    'flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white dark:bg-gray-900',
+                    'shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:hover:bg-gray-600',
+                    'bg-slate-600 hover:bg-slate-700 focus-visible:outline-indigo-600'
+                  )}
+                >
+                  Sign up
+                </a>
               </div>
             </form>
           </div>

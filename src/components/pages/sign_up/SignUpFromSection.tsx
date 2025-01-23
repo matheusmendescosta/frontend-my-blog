@@ -82,7 +82,7 @@ export default function SignUpFromSection() {
             </div>
           </div>
         </div>
-        <div className="flex space-x-4 pt-10">
+        <div className="mt-6 space-y-3">
           <button
             type="submit"
             className={twJoin(
