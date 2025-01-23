@@ -2,20 +2,23 @@
 
 import { twJoin } from 'tailwind-merge';
 import { useSignIn } from './use-sign-in';
+import Image from 'next/image';
 
 export const SignInForm = () => {
   const { handleSubmit, register } = useSignIn();
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">
-            Sign in to my brain
-          </h2>
-        </div>
-
+      <div className="flex min-h-full flex-1 flex-col justify-center sm:px-6 lg:px-8">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-          <div className="px-6 py-12 shadow sm:dark:border dark:border-gray-700 sm:rounded-lg sm:px-12">
+          <div className="px-6 py-12 dark:border-gray-700 sm:rounded-lg sm:px-12 sm:shadow-2xl sm:dark:border">
+            <div className="flex justify-center">
+              <Image src="/images/brainlogo.png" alt="brain logo" width={100} height={100} />
+            </div>
+            <div className="sm:mx-auto sm:w-full sm:max-w-md">
+              <h2 className="mb-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">
+                Sign in to my brain
+              </h2>
+            </div>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
