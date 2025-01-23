@@ -16,7 +16,7 @@ jobs:
       - name: Check version npm and install the dependencies
         run: |
           npm -v
-          npm i
+          npm i --legacy-peer-deps
       - name: Lint and build application
         run: |
           npm run lint
