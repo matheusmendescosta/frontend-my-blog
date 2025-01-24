@@ -2,20 +2,23 @@
 
 import { twJoin } from 'tailwind-merge';
 import { useSignIn } from './use-sign-in';
+import Image from 'next/image';
 
 export const SignInForm = () => {
   const { handleSubmit, register } = useSignIn();
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">
-            Sign in to my brain
-          </h2>
-        </div>
-
+      <div className="flex min-h-full flex-1 flex-col justify-center sm:px-6 lg:px-8">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-          <div className="px-6 py-12 shadow sm:dark:border dark:border-gray-700 sm:rounded-lg sm:px-12">
+          <div className="px-6 py-12 dark:border-gray-700 sm:rounded-lg sm:px-12 sm:shadow-2xl sm:dark:border">
+            <div className="flex justify-center">
+              <Image src="/images/brainlogo.png" alt="brain logo" width={100} height={100} />
+            </div>
+            <div className="sm:mx-auto sm:w-full sm:max-w-md">
+              <h2 className="mb-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">
+                Sign in to my brain
+              </h2>
+            </div>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
@@ -56,17 +59,7 @@ export const SignInForm = () => {
                   />
                 </div>
               </div>
-              <div className="flex justify-between space-x-2">
-                <a
-                  href="/sign_up"
-                  className={twJoin(
-                    'flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white dark:bg-gray-900',
-                    'shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:hover:bg-gray-600',
-                    'bg-slate-600 hover:bg-slate-700 focus-visible:outline-indigo-600'
-                  )}
-                >
-                  Sign up
-                </a>
+              <div className="space-y-2">
                 <button
                   type="submit"
                   className={twJoin(
@@ -77,6 +70,16 @@ export const SignInForm = () => {
                 >
                   Sign in
                 </button>
+                <a
+                  href="/sign_up"
+                  className={twJoin(
+                    'flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white dark:bg-gray-900',
+                    'shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:hover:bg-gray-600',
+                    'bg-slate-600 hover:bg-slate-700 focus-visible:outline-indigo-600'
+                  )}
+                >
+                  Sign up
+                </a>
               </div>
             </form>
           </div>
