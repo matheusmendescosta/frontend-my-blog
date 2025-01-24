@@ -1,4 +1,4 @@
-import { ThemeContext } from '@/providers/ThemeDarkLightProvider';
+import { ThemeContext } from '@/providers/ThemeProvider';
 import { MoonIcon, SunMedium } from 'lucide-react';
 import { useContext } from 'react';
 

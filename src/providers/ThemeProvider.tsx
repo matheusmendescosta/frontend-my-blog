@@ -1,21 +1,31 @@
 'use client';
 
-import * as React from 'react';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { createContext, useEffect, useState } from 'react';
 
-export function ThemeProvider({
-  children,
-  ...props
-}: React.ComponentProps<typeof NextThemesProvider>) {
-  //TODO: This sucks
-  const [mounted, setMounted] = React.useState(false);
+export type ThemeContextType = {
+  mode: 'light' | 'dark' | (string & {});
+  toggleMode: () => void;
+};
 
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
+export const ThemeContext = createContext<ThemeContextType>({
+  mode: 'light',
+  toggleMode: () => {},
+});
 
-  if (!mounted) {
-    return <>{children}</>;
-  }
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [mode, setMode] = useState<'light' | 'dark' | (string & {})>('light');
+
+  const toggleMode = () => {
+    const theme = mode === 'light' ? 'dark' : 'light';
+    setMode(theme);
+    localStorage.setItem('theme', theme);
+  };
+
+  useEffect(() => {
+    const theme = localStorage.getItem('theme');
+
+    setMode(theme ?? 'light');
+  }, [mode]);
+
+  return <ThemeContext.Provider value={{ mode, toggleMode }}>{children}</ThemeContext.Provider>;
 }
