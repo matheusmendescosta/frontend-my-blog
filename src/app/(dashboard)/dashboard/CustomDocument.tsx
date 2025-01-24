@@ -1,6 +1,6 @@
 'use client';
 
-import { ThemeContext } from '@/providers/ThemeDarkLigthProvider';
+import { ThemeContext } from '@/providers/ThemeDarkLightProvider';
 import React, { useContext } from 'react';
 import { twJoin } from 'tailwind-merge';
 

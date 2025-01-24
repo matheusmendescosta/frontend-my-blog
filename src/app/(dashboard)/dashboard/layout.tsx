@@ -2,8 +2,7 @@ import { authOptions } from '@/auth/auth-options';
 import { AppSidebar } from '@/components/layout/app-sidebar';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { DefaultProvider } from '@/providers/DefaultProvider';
-import { ThemeProvider } from '@/providers/ThemeDarkLigthProvider';
-// import { ThemeProvider } from '@/providers/ThemeProvider';
+import { ThemeProvider } from '@/providers/ThemeDarkLightProvider';
 import { getServerSession, Session } from 'next-auth';
 
 const getCurrentUser = async (session: Session | null) => {
