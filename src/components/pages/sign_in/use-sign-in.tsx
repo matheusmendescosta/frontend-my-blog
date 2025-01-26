@@ -14,6 +14,7 @@ export const useSignIn = () => {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<FormProps>();
 
@@ -32,6 +33,9 @@ export const useSignIn = () => {
       if (response?.ok) {
         router.push('/dashboard');
       } else {
+        if (response?.error === 'CredentialsSignin') {
+          setError('root', { message: 'Invalid credentials' });
+        }
         setIsSubmitting(false);
       }
     });

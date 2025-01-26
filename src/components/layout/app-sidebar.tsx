@@ -15,7 +15,6 @@ import {
 import { UserContext } from '@/providers/UserProvider';
 import { useContext } from 'react';
 import DarkMode from '../ui/DarkMode';
-import { Separator } from '@radix-ui/react-separator';
 
 const items = [
   {
