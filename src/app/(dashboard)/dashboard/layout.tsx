@@ -28,6 +28,8 @@ export const RequiredLayout = async ({ children }: { children: React.ReactNode }
   const session = await getServerSession(authOptions);
   const currentUser = await getCurrentUser(session);
 
+  console.log(currentUser)
+
   return (
     <DefaultProvider user={currentUser}>
       <div className="h-screen w-screen">
