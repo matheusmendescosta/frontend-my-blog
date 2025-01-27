@@ -1,6 +1,6 @@
 'use client';
 
-import { ChartBarStacked, Home, Tag, UserRound } from 'lucide-react';
+import { ChartBarStacked, Home, Tag, UserRound, Users2Icon } from 'lucide-react';
 
 import {
   Sidebar,
@@ -15,7 +15,6 @@ import {
 import { UserContext } from '@/providers/UserProvider';
 import { useContext } from 'react';
 import DarkMode from '../ui/DarkMode';
-import { Separator } from '@radix-ui/react-separator';
 
 const items = [
   {
@@ -35,8 +34,13 @@ const items = [
   },
   {
     title: 'User',
-    url: '/dashboard/user/[id]',
+    url: '/dashboard/users/user/[id]',
     icon: UserRound,
+  },
+  {
+    title: 'Users',
+    url: '/dashboard/users',
+    icon: Users2Icon,
   },
 ];
 
@@ -50,7 +54,7 @@ export function AppSidebar() {
           <SidebarGroupLabel>my brain</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              <div className="flex items-center py-4 pl-1">
+              <div className="flex items-center pl-2">
                 <DarkMode />
                 <span className="pl-1">Theme</span>
               </div>

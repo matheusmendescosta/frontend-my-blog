@@ -5,12 +5,13 @@ import { useSignIn } from './use-sign-in';
 import Image from 'next/image';
 
 export const SignInForm = () => {
-  const { handleSubmit, register } = useSignIn();
+  const { handleSubmit, register, isSubmitting, errors } = useSignIn();
+  console.log(errors);
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center sm:px-6 lg:px-8">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-          <div className="px-6 py-12 dark:border-gray-700 sm:rounded-lg sm:px-12 sm:shadow-2xl sm:dark:border">
+          <div className="px-6 py-12 sm:rounded-lg sm:px-12 sm:shadow-2xl dark:border-gray-700 sm:dark:border">
             <div className="flex justify-center">
               <Image src="/images/brainlogo.png" alt="brain logo" width={100} height={100} />
             </div>
@@ -59,8 +60,10 @@ export const SignInForm = () => {
                   />
                 </div>
               </div>
+              {errors.root && <p className="mt-2 text-sm text-red-600 dark:text-red-500">{errors.root.message}</p>}
               <div className="space-y-2">
                 <button
+                  disabled={isSubmitting}
                   type="submit"
                   className={twJoin(
                     'flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white dark:bg-gray-900',
