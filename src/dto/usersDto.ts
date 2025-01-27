@@ -1,13 +1,18 @@
-export type usersDto = {
-  totalCount: number;
+type UserRole = 'READER' | 'ADMIN' | 'AUTHOR';
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface UsersDto {
+  hasMore: boolean;
   offset: number;
   limit: number;
-  users: {
-    id: string;
-    name: string;
-    email: string;
-    createdAt: string;
-    updatedAt: string;
-    role: string;
-  }[];
-};
+  totalCount: number;
+  users: User[];
+}
