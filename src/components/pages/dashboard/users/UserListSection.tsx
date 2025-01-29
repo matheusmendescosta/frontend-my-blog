@@ -18,14 +18,15 @@ const UserListSection = () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {users[0]?.users.map((user, index) => (
-          <TableRow key={index}>
-            <TableCell>{user.name}</TableCell>
-            <TableCell>{user.email}</TableCell>
-            <TableCell>{user.role}</TableCell>
-            <TableCell className="text-right">Delete</TableCell>
-          </TableRow>
-        ))}
+        {users?.users &&
+          users.users.map((user, index) => (
+            <TableRow key={index}>
+              <TableCell>{user.name || 'Não definido'}</TableCell>
+              <TableCell>{user.email || 'Não definido'}</TableCell>
+              <TableCell>{user.role || 'Não definido'}</TableCell>
+              <TableCell className="text-right">Delete</TableCell>
+            </TableRow>
+          ))}
       </TableBody>
     </Table>
   );
