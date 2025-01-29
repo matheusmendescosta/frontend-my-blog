@@ -11,7 +11,7 @@ export const SignInForm = () => {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center sm:px-6 lg:px-8">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-          <div className="px-6 py-12 sm:rounded-lg sm:px-12 sm:shadow-2xl dark:border-gray-700 sm:dark:border">
+          <div className="px-6 py-12 sm:rounded-lg sm:px-12 sm:shadow-2xl dark:shadow-gray-500 sm:dark:border">
             <div className="flex justify-center">
               <Image src="/images/brainlogo.png" alt="brain logo" width={100} height={100} />
             </div>
