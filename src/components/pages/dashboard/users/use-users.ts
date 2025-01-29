@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 export const useUsers = () => {
   const { data: session } = useSession();
-  const [users, setUsers] = useState<UsersDto[]>([]);
+  const [users, setUsers] = useState<UsersDto>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -28,7 +28,7 @@ export const useUsers = () => {
         }
         return response.json();
       })
-      .then((data: UsersDto[]) => {
+      .then((data: UsersDto) => {
         setUsers(data);
       })
       .catch((error: Error) => {

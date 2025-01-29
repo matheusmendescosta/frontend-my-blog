@@ -1,6 +1,6 @@
 type UserRole = 'READER' | 'ADMIN' | 'AUTHOR';
 
-export interface User {
+export interface Users {
   id: string;
   name: string;
   email: string;
@@ -14,5 +14,5 @@ export interface UsersDto {
   offset: number;
   limit: number;
   totalCount: number;
-  users: User[];
+  users: Users[];
 }
