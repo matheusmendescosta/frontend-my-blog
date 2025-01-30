@@ -1,26 +1,26 @@
 'use client';
 
-import { tagDto } from '@/dto/tagDto';
+import { categoriesDto } from '@/dto/categories';
 import { useCallback, useEffect, useState } from 'react';
 
-export const useTags = () => {
-  const [tags, setTags] = useState<tagDto>();
+export const useCategories = () => {
+  const [categories, setCategories] = useState<categoriesDto>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const loadTags = useCallback(() => {
+  const loadCategories = useCallback(() => {
     setIsLoading(true);
     setError(null);
 
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/tags`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/categories`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Fetch fail');
         }
         return response.json();
       })
-      .then((data: tagDto) => {
-        setTags(data);
+      .then((data: categoriesDto) => {
+        setCategories(data);
       })
       .catch((error) => {
         setError(error);
@@ -31,8 +31,8 @@ export const useTags = () => {
   }, []);
 
   useEffect(() => {
-    loadTags();
-  }, [loadTags]);
+    loadCategories();
+  }, [loadCategories]);
 
-  return { tags, setTags, isLoading, error };
+  return { categories, setCategories, isLoading, error };
 };

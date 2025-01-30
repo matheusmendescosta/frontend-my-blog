@@ -1,7 +1,13 @@
 import UserListSection from './UserListSection';
+import UsersHeaderPage from './UsersHeaderPage';
 
 const UsersPage = () => {
-  return <UserListSection />;
+  return (
+    <>
+      <UsersHeaderPage />
+      <UserListSection />
+    </>
+  );
 };
 
 export default UsersPage;
