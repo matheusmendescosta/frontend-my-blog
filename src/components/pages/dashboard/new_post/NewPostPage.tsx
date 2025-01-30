@@ -1,11 +1,11 @@
 import NewPostHeader from './NewPostHeader';
-import MyEditor from './NewPostSection';
+import NewPostSection from './NewPostSection';
 
 const NewPostPage = () => {
   return (
     <>
       <NewPostHeader />
-      <MyEditor />
+      <NewPostSection />
     </>
   );
 };

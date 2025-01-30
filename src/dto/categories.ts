@@ -1,13 +1,13 @@
-export type tags = {
+export type categories = {
   id: string;
   name: string;
   slug: string;
 };
 
-export type tagDto = {
+export type categoriesDto = {
   hasMore: boolean;
   offset: number;
   limit: number;
   totalCount: number;
-  tags: tags[];
+  category: categories[];
 };

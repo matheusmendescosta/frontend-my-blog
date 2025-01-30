@@ -54,10 +54,6 @@ export function AppSidebar() {
           <SidebarGroupLabel>my brain</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              <div className="flex items-center pl-2">
-                <DarkMode />
-                <span className="pl-1">Theme</span>
-              </div>
               {items.map((item) => {
                 // if (item.title === '' && userContext.user.role !== 'ADMIN') {
                 //   return null;
@@ -76,6 +72,10 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+        <div className="mt-auto flex space-x-2 items-center p-2">
+          <DarkMode />
+          <span>Theme</span>
+        </div>
       </SidebarContent>
     </Sidebar>
   );

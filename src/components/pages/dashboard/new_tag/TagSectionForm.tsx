@@ -7,7 +7,7 @@ const TagSectionForm = () => {
   const { register, handleSubmit } = useNewTag();
 
   return (
-    <div className="mt-5 rounded-sm border px-11 pl-10 pt-6">
+    <div className="mt-5 rounded-sm border px-11 pl-10 pt-6 w-full">
       <form onSubmit={handleSubmit} className="space-y-8">
         <div>
           <label className="text-md block font-medium text-gray-900 dark:text-white">Name</label>

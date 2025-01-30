@@ -1,10 +1,10 @@
 'use client';
 
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { useTags } from './use-tags';
+import { useCategories } from './use-categories';
 
-const TagListSection = () => {
-  const { tags, isLoading, error } = useTags();
+const CategoriesListSection = () => {
+  const { categories } = useCategories();
 
   return (
     <>
@@ -18,11 +18,11 @@ const TagListSection = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {tags &&
-            tags.tags.map((tag, index) => (
+          {categories &&
+            categories.category.map((category, index) => (
               <TableRow key={index}>
-                <TableCell>{tag.name}</TableCell>
-                <TableCell>{tag.slug}</TableCell>
+                <TableCell>{category.name}</TableCell>
+                <TableCell>{category.slug}</TableCell>
                 <TableCell className="text-right">Delete</TableCell>
               </TableRow>
             ))}
@@ -32,4 +32,4 @@ const TagListSection = () => {
   );
 };
 
-export default TagListSection;
+export default CategoriesListSection;

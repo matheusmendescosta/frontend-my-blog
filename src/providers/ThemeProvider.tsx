@@ -19,6 +19,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const theme = mode === 'light' ? 'dark' : 'light';
     setMode(theme);
     localStorage.setItem('theme', theme);
+    //TODO: quick fix do kaway404
+    if (document.location.pathname === '/dashboard/posts/post/new') document.location.reload();
   };
 
   useEffect(() => {
