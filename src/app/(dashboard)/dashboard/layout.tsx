@@ -30,15 +30,13 @@ export const RequiredLayout = async ({ children }: { children: React.ReactNode }
 
   return (
     <DefaultProvider user={currentUser}>
-      <div className="h-screen w-screen">
-        <SidebarProvider>
-          <AppSidebar />
-          <SidebarTrigger />
-          <div className="w-4/5 border p-4">
-            <ThemeProvider>{children}</ThemeProvider>
-          </div>
-        </SidebarProvider>
-      </div>
+      <SidebarProvider>
+        <AppSidebar />
+        <SidebarTrigger />
+        <div className="w-full p-4">
+          <ThemeProvider>{children}</ThemeProvider>
+        </div>
+      </SidebarProvider>
     </DefaultProvider>
   );
 };

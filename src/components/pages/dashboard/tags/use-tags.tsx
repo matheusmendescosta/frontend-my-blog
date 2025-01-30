@@ -4,9 +4,14 @@ import { tagDto } from '@/dto/tagDto';
 import { useCallback, useEffect, useState } from 'react';
 
 export const useTags = () => {
-  const [tags, setTags] = useState<tagDto[]>([]);
+  const [tags, setTags] = useState<tagDto>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const loadPosts = useCallback(() => {
+    setIsLoading(true);
+    setError(null);
+
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/tags`)
       .then((response) => {
         if (!response.ok) {
@@ -14,20 +19,20 @@ export const useTags = () => {
         }
         return response.json();
       })
-      .then((data) => {
-        if (data && Array.isArray(data.tags)) {
-          setTags(data.tags);
-        } else {
-          console.error('Invalid response format:', data);
-          setTags([]);
-        }
+      .then((data: tagDto) => {
+        setTags(data);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   useEffect(() => {
     loadPosts();
   }, [loadPosts]);
 
-  return { tags, setTags };
+  return { tags, setTags, isLoading, error };
 };

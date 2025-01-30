@@ -4,7 +4,7 @@ import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Tabl
 import { useTags } from './use-tags';
 
 const TagListSection = () => {
-  const { tags } = useTags();
+  const { tags, isLoading, error } = useTags();
 
   return (
     <>
@@ -18,13 +18,14 @@ const TagListSection = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {tags.map((tag, index) => (
-            <TableRow key={index}>
-              <TableCell>{tag.name}</TableCell>
-              <TableCell>{tag.slug}</TableCell>
-              <TableCell className="text-right">Delete</TableCell>
-            </TableRow>
-          ))}
+          {tags &&
+            tags.tags.map((tag, index) => (
+              <TableRow key={index}>
+                <TableCell>{tag.name}</TableCell>
+                <TableCell>{tag.slug}</TableCell>
+                <TableCell className="text-right">Delete</TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
     </>

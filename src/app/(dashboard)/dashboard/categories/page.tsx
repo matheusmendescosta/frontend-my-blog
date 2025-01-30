@@ -1,5 +1,7 @@
+import CategoriesPage from '@/components/pages/dashboard/categories/CategoriesPage';
+
 const page = () => {
-  return <div>page</div>;
+  return <CategoriesPage />;
 };
 
 export default page;
