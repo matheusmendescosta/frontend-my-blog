@@ -26,11 +26,13 @@ const items = [
     title: 'Tags',
     url: '/dashboard/tags',
     icon: Tag,
+    isAdmin: true,
   },
   {
     title: 'Category',
     url: '/dashboard/categories',
     icon: ChartBarStacked,
+    isAdmin: true,
   },
   {
     title: 'User',
@@ -41,6 +43,7 @@ const items = [
     title: 'Users',
     url: '/dashboard/users',
     icon: Users2Icon,
+    isAdmin: true,
   },
 ];
 
@@ -55,9 +58,9 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => {
-                // if (item.title === '' && userContext.user.role !== 'ADMIN') {
-                //   return null;
-                // }
+                if (item.isAdmin && userContext.user.role !== 'ADMIN') {
+                  return null;
+                }
                 return (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
@@ -72,7 +75,7 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        <div className="mt-auto flex space-x-2 items-center p-2">
+        <div className="mt-auto flex items-center space-x-2 p-2">
           <DarkMode />
           <span>Theme</span>
         </div>

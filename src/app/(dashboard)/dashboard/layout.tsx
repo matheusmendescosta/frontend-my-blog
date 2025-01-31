@@ -2,7 +2,6 @@ import { authOptions } from '@/auth/auth-options';
 import { AppSidebar } from '@/components/layout/app-sidebar';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { DefaultProvider } from '@/providers/DefaultProvider';
-import { ThemeProvider } from '@/providers/ThemeProvider';
 import { getServerSession, Session } from 'next-auth';
 
 const getCurrentUser = async (session: Session | null) => {
@@ -33,9 +32,7 @@ export const RequiredLayout = async ({ children }: { children: React.ReactNode }
       <SidebarProvider>
         <AppSidebar />
         <SidebarTrigger />
-        <div className="w-full p-4">
-          <ThemeProvider>{children}</ThemeProvider>
-        </div>
+        <div className="w-full p-4">{children}</div>
       </SidebarProvider>
     </DefaultProvider>
   );

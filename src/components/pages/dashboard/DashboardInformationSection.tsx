@@ -1,6 +1,12 @@
+'use client';
+
+import { UserContext } from '@/providers/UserProvider';
 import { ArrowUp } from 'lucide-react';
+import { useContext } from 'react';
 
 const DashboardInformationSection = () => {
+  const userContext = useContext(UserContext);
+
   return (
     <div className="mt-4 rounded-sm border p-4 pt-4 shadow-sm">
       <div className="rounded-lg p-6 shadow-md">
@@ -13,21 +19,21 @@ const DashboardInformationSection = () => {
             <p className="pl-4 text-lg font-semibold">Posts</p>
             <div className="flex items-center">
               <ArrowUp />
-              <p className="text-5xl">5</p>
+              <p className="text-5xl">{userContext.user.posts.length}</p>
             </div>
           </div>
           <div className="flex h-32 items-center justify-between rounded-lg border p-4 shadow-md">
             <p className="pl-4 text-lg font-semibold">Likes</p>
             <div className="flex items-center">
               <ArrowUp />
-              <p className="text-5xl">53</p>
+              <p className="text-5xl">{userContext.user.likes.length}</p>
             </div>
           </div>
           <div className="flex h-32 items-center justify-between rounded-lg border p-4 shadow-md">
-            <p className="pl-4 text-lg font-semibold overflow-hidden">Comments</p>
-            <div className="flex items-center ">
+            <p className="overflow-hidden pl-4 text-lg font-semibold">Comments</p>
+            <div className="flex items-center">
               <ArrowUp />
-              <p className="text-5xl">100</p>
+              <p className="text-5xl">{userContext.user.comments.length}</p>
             </div>
           </div>
         </div>

@@ -1,3 +1,5 @@
+'use client';
+
 import UserListSection from './UserListSection';
 import UsersHeaderPage from './UsersHeaderPage';
 

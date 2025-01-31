@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export const SignInForm = () => {
   const { handleSubmit, register, isSubmitting, errors } = useSignIn();
-  console.log(errors);
+
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center sm:px-6 lg:px-8">
@@ -68,7 +68,8 @@ export const SignInForm = () => {
                   className={twJoin(
                     'flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white dark:bg-gray-900',
                     'shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:hover:bg-gray-600',
-                    'bg-slate-600 hover:bg-slate-700 focus-visible:outline-indigo-600'
+                    'bg-slate-600 hover:bg-slate-700 focus-visible:outline-indigo-600',
+                    isSubmitting && 'cursor-not-allowed opacity-50'
                   )}
                 >
                   Sign in

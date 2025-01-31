@@ -1,3 +1,5 @@
+'use client';
+
 import CategoriesListSection from './CategoriesListSection';
 import CategoryHeaderPage from './CategoryHeaderPage';
 
