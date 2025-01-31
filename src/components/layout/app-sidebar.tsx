@@ -15,6 +15,7 @@ import {
 import { UserContext } from '@/providers/UserProvider';
 import { useContext } from 'react';
 import DarkMode from '../ui/DarkMode';
+import { ThemeContext } from '@/providers/ThemeProvider';
 
 const items = [
   {
@@ -49,7 +50,7 @@ const items = [
 
 export function AppSidebar() {
   const userContext = useContext(UserContext);
-
+  const theme = useContext(ThemeContext);
   return (
     <Sidebar>
       <SidebarContent>
@@ -77,7 +78,7 @@ export function AppSidebar() {
         </SidebarGroup>
         <div className="mt-auto flex items-center space-x-2 p-2">
           <DarkMode />
-          <span>Theme</span>
+          {theme.mode == 'dark' ? <span>Dark</span> : <span>Light</span>}
         </div>
       </SidebarContent>
     </Sidebar>
