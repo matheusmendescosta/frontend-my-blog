@@ -21,30 +21,43 @@ const NewPostSection = ({ userId }: NewPostSectionProps) => {
 
   return (
     <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
-      <div className="flex flex-col items-center space-x-2 sm:flex-row">
-        <div className="flex w-full flex-col sm:w-1/3">
+      <div className="flex flex-col space-y-4">
+        <div className="flex w-full flex-col">
           <label className="">Title</label>
-          <input type="text" className={twJoin(`rounded-md border-2 p-1.5 sm:text-sm dark:bg-gray-600`)} {...register('title')} />
+          <input type="text" className={twJoin(`w-full rounded-md border-2 p-1.5 sm:text-sm dark:bg-gray-600`)} {...register('title')} />
         </div>
-        <div className="flex w-full flex-col sm:w-1/3">
+        <div className="flex w-full flex-col">
           <label className="">Slug</label>
-          <input type="text" className={twJoin(`rounded-md border-2 p-1.5 sm:text-sm dark:bg-gray-600`)} {...register('slug')} />
+          <input type="text" className={twJoin(`w-full rounded-md border-2 p-1.5 sm:text-sm dark:bg-gray-600`)} {...register('slug')} />
         </div>
-        <div className="flex flex-col sm:w-1/3">
-          <label className="">Category</label>
-          <Select onValueChange={(value) => setValue('categoryId', value)}>
-            <SelectTrigger className="w-full sm:w-[340px]">
-              <SelectValue placeholder="Category" />
-            </SelectTrigger>
-            <SelectContent>
-              {categories?.category.map((category, index) => (
-                <SelectItem key={index} value={category.id}>
-                  {category.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+      </div>
+
+      <div className="flex flex-col sm:w-1/3 md:w-full lg:w-full">
+        <label className="">Category</label>
+        <Select onValueChange={(value) => setValue('categoryId', value)}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Category" />
+          </SelectTrigger>
+          <SelectContent>
+            {categories?.category.map((category, index) => (
+              <SelectItem key={index} value={category.id}>
+                {category.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="flex flex-col sm:w-1/3 md:w-full lg:w-full">
+        <label className="">Status</label>
+        <Select onValueChange={(value) => setValue('status', value as 'DRAFT' | 'PUBLISHED')}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Status" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="DRAFT">Draft</SelectItem>
+            <SelectItem value="PUBLISHED">Publish</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
       <Editor
         apiKey={process.env.NEXT_PUBLIC_TINYMCE_KEY}
@@ -77,20 +90,8 @@ const NewPostSection = ({ userId }: NewPostSectionProps) => {
         }}
       />
       <div>
-        <div className="flex flex-col sm:w-1/3">
-          <label className="">Category</label>
-          <Select onValueChange={(value) => setValue('status', value as 'DRAFT' | 'PUBLISHED')}>
-            <SelectTrigger className="w-full sm:w-[340px]">
-              <SelectValue placeholder="Category" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="DRAFT">Draft</SelectItem>
-              <SelectItem value="PUBLISHED">Publish</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
         <Button variant="secondary" type="submit">
-          Draft
+          Save
         </Button>
       </div>
     </form>
