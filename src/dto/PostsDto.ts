@@ -13,5 +13,11 @@ export type postsDto = {
       likes: number;
     };
     comments: [];
+    author: {
+      name: string;
+    };
+    category: {
+      name: string;
+    };
   }[];
 };
