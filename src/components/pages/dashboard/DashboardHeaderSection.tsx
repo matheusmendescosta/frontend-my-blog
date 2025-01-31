@@ -26,7 +26,7 @@ const DashboardHeaderSection = () => {
         {userContext.user.role === 'ADMIN' && (
           <>
             <Button variant="outline" asChild>
-              <Link href="/dashboard/posts/post/new">Create new post</Link>
+              <Link href={`/dashboard/posts/post/${userContext.user.id}/new`}>Create new post</Link>
             </Button>
             <Button variant="outline" asChild>
               <Link href="/dashboard/categories/new">Create new category</Link>
