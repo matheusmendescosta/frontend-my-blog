@@ -1,5 +1,7 @@
+import PostsPage from '@/components/pages/dashboard/posts/PostPage';
+
 const page = () => {
-  return <div>page</div>;
+  return <PostsPage />;
 };
 
 export default page;

@@ -1,6 +1,6 @@
 'use client';
 
-import { ChartBarStacked, Home, Tag, UserRound, Users2Icon } from 'lucide-react';
+import { BookDashed, ChartBarStacked, Home, Tag, UserRound, Users2Icon } from 'lucide-react';
 
 import {
   Sidebar,
@@ -22,6 +22,11 @@ const items = [
     title: 'Home',
     url: '/dashboard',
     icon: Home,
+  },
+  {
+    title: 'Posts',
+    url: '/dashboard/posts',
+    icon: BookDashed,
   },
   {
     title: 'Tags',
@@ -51,6 +56,7 @@ const items = [
 export function AppSidebar() {
   const userContext = useContext(UserContext);
   const theme = useContext(ThemeContext);
+
   return (
     <Sidebar>
       <SidebarContent>
@@ -78,7 +84,7 @@ export function AppSidebar() {
         </SidebarGroup>
         <div className="mt-auto flex items-center space-x-2 p-2">
           <DarkMode />
-          {theme.mode == 'dark' ? <span>Dark</span> : <span>Light</span>}
+          {theme.mode == 'dark' ? <span>Light</span> : <span>Dark</span>}
         </div>
       </SidebarContent>
     </Sidebar>
