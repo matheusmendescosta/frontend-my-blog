@@ -23,20 +23,21 @@ const DashboardHeaderSection = () => {
       </div>
 
       <div className="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
-        <Button variant="outline" asChild>
-          <Link href="/dashboard/posts/post/new">Create new post</Link>
-        </Button>
-        <Button variant="outline" asChild>
-          <Link href="/dashboard/categories/new">Create new category</Link>
-        </Button>
-        <Button variant="outline" asChild>
-          <Link href="/dashboard/tags/new">Create new tag</Link>
-        </Button>
+        {userContext.user.role === 'ADMIN' && (
+          <>
+            <Button variant="outline" asChild>
+              <Link href={`/dashboard/posts/post/${userContext.user.id}/new`}>Create new post</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/dashboard/categories/new">Create new category</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/dashboard/tags/new">Create new tag</Link>
+            </Button>
+          </>
+        )}
         <Button variant="outline" asChild>
           <Link href="/dashboard/posts">see my posts</Link>
-        </Button>
-        <Button variant="outline" asChild>
-          <Link href="/dashboard/posts">see my comments</Link>
         </Button>
       </div>
     </div>

@@ -1,3 +1,5 @@
+'use client';
+
 import DashboardHeaderSection from './DashboardHeaderSection';
 import DashboardInformationSection from './DashboardInformationSection';
 

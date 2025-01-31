@@ -5,4 +5,7 @@ export type userDto = {
   role: 'ADMIN' | 'READER' | 'AUTHOR';
   createdAt: string;
   updatedAt: string;
+  posts: any[];
+  likes: any[];
+  comments: any[];
 };

@@ -1,3 +1,5 @@
+'use client';
+
 import TagListSection from './TagListSection';
 import TagsHeaderPage from './TagsHeaderPage';
 

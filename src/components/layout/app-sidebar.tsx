@@ -1,6 +1,6 @@
 'use client';
 
-import { ChartBarStacked, Home, Tag, UserRound, Users2Icon } from 'lucide-react';
+import { BookDashed, ChartBarStacked, Home, Tag, UserRound, Users2Icon } from 'lucide-react';
 
 import {
   Sidebar,
@@ -15,6 +15,7 @@ import {
 import { UserContext } from '@/providers/UserProvider';
 import { useContext } from 'react';
 import DarkMode from '../ui/DarkMode';
+import { ThemeContext } from '@/providers/ThemeProvider';
 
 const items = [
   {
@@ -23,14 +24,21 @@ const items = [
     icon: Home,
   },
   {
+    title: 'Posts',
+    url: '/dashboard/posts',
+    icon: BookDashed,
+  },
+  {
     title: 'Tags',
     url: '/dashboard/tags',
     icon: Tag,
+    isAdmin: true,
   },
   {
     title: 'Category',
     url: '/dashboard/categories',
     icon: ChartBarStacked,
+    isAdmin: true,
   },
   {
     title: 'User',
@@ -41,11 +49,13 @@ const items = [
     title: 'Users',
     url: '/dashboard/users',
     icon: Users2Icon,
+    isAdmin: true,
   },
 ];
 
 export function AppSidebar() {
   const userContext = useContext(UserContext);
+  const theme = useContext(ThemeContext);
 
   return (
     <Sidebar>
@@ -55,9 +65,9 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => {
-                // if (item.title === '' && userContext.user.role !== 'ADMIN') {
-                //   return null;
-                // }
+                if (item.isAdmin && userContext.user.role !== 'ADMIN') {
+                  return null;
+                }
                 return (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
@@ -72,9 +82,9 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        <div className="mt-auto flex space-x-2 items-center p-2">
+        <div className="mt-auto flex items-center space-x-2 p-2">
           <DarkMode />
-          <span>Theme</span>
+          {theme.mode == 'dark' ? <span>Light</span> : <span>Dark</span>}
         </div>
       </SidebarContent>
     </Sidebar>

@@ -1,11 +1,15 @@
 import NewPostHeader from './NewPostHeader';
 import NewPostSection from './NewPostSection';
 
-const NewPostPage = () => {
+type NewPostPageProps = {
+  userId: string;
+};
+
+const NewPostPage = ({ userId }: NewPostPageProps) => {
   return (
     <>
       <NewPostHeader />
-      <NewPostSection />
+      <NewPostSection userId={userId} />
     </>
   );
 };
