@@ -1,10 +1,11 @@
 'use client';
 
-import { BookDashed, ChartBarStacked, Home, Tag, UserRound, Users2Icon } from 'lucide-react';
+import { BookDashed, ChartBarStacked, ChevronUp, Home, LogOut, Settings, Tag, User2, UserRound, Users, Users2Icon } from 'lucide-react';
 
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -16,6 +17,7 @@ import { UserContext } from '@/providers/UserProvider';
 import { useContext } from 'react';
 import DarkMode from '../ui/DarkMode';
 import { ThemeContext } from '@/providers/ThemeProvider';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu';
 
 const items = [
   {
@@ -44,12 +46,6 @@ const items = [
     title: 'User',
     url: '/dashboard/users/user/[id]',
     icon: UserRound,
-  },
-  {
-    title: 'Users',
-    url: '/dashboard/users',
-    icon: Users2Icon,
-    isAdmin: true,
   },
 ];
 
@@ -82,11 +78,42 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        <div className="mt-auto flex items-center space-x-2 p-2">
-          <DarkMode />
-          {theme.mode == 'dark' ? <span>Light</span> : <span>Dark</span>}
-        </div>
       </SidebarContent>
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton>
+                  <Settings /> Setting
+                  <ChevronUp className="ml-auto" />
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent side="top" className="w-[--radix-popper-anchor-width]">
+                <DropdownMenuItem>
+                  <DarkMode>{theme.mode == 'dark' ? <span>Light</span> : <span>Dark</span>}</DarkMode>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="/dashboard/users">
+                    <span className="flex items-center space-x-2">
+                      <User2 />
+                      <p>Users</p>
+                    </span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <a href="#">
+                    <span className="flex items-center space-x-2">
+                      <LogOut />
+                      <p>Sign out</p>
+                    </span>
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   );
 }

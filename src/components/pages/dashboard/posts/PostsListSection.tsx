@@ -38,9 +38,9 @@ const PostsListSection = ({ id, title, slug, content, createdAt, likes, comments
         </div>
         <p className="pb-1 text-sm text-gray-600">{slug}</p>
         <Badge variant="outline">{category}</Badge>
-        <p className="my-4 line-clamp-3 indent-2 text-gray-700">
+        <div className="my-4 line-clamp-3 indent-2 text-gray-700">
           {content.trim() != '' && <div className="prose mb-4 p-2 shadow-lg" dangerouslySetInnerHTML={{ __html: content }} />}
-        </p>
+        </div>
         <p className="mb-2 flex justify-start pt-2 text-sm text-gray-500">{createdAt}</p>
         <p className="mb-2 flex justify-start text-sm text-gray-500">By: {author}</p>
         <div className="flex justify-start space-x-2 pt-2">
