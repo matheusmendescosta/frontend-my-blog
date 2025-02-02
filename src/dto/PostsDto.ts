@@ -1,4 +1,8 @@
 export type postsDto = {
+  hasMore: boolean;
+  limit: number;
+  offset: number;
+  totalCount: number;
   posts: {
     id: string;
     title: string;

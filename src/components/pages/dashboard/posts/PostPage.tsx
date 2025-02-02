@@ -11,9 +11,11 @@ import {
 import PostsHeaderPage from './PostsHeaderPage';
 import PostsListSection from './PostsListSection';
 import { usePosts } from './use-posts';
+import { twJoin } from 'tailwind-merge';
 
 const PostsPage = () => {
   const { posts } = usePosts();
+
   return (
     <>
       <PostsHeaderPage />
@@ -21,7 +23,7 @@ const PostsPage = () => {
         posts.posts.map((post, index) => (
           <div
             key={index}
-            className="my-2 rounded-sm border hover:cursor-pointer hover:shadow-sm hover:shadow-black dark:hover:shadow-white"
+            className={twJoin('my-2 rounded-sm border hover:cursor-pointer hover:shadow-sm hover:shadow-black dark:hover:shadow-white')}
           >
             <PostsListSection
               id={post.id}

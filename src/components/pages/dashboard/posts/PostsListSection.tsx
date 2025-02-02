@@ -30,24 +30,24 @@ function ArrowIcon() {
 
 const PostsListSection = ({ id, title, slug, content, createdAt, likes, comments, author, category }: PostsListSectionProps) => {
   return (
-    <Link key={id} href={`posts/post/${id}`}>
+    <Link key={id} href={`posts/${id}`}>
       <div className="mb-4 rounded p-4 shadow-sm">
         <div className="flex items-center space-x-2">
-          <h1 className="text-2xl font-bold text-gray-600 hover:underline">{title}</h1>
+          <h1 className="text-2xl font-bold hover:underline dark:text-gray-300">{title}</h1>
           <ArrowIcon />
         </div>
-        <p className="pb-1 text-sm text-gray-600">{slug}</p>
+        <p className="pb-1 text-sm dark:text-gray-300">{slug}</p>
         <Badge variant="outline">{category}</Badge>
-        <div className="my-4 line-clamp-3 indent-2 text-gray-700">
+        <div className="my-4 line-clamp-3 indent-2 dark:text-gray-300">
           {content.trim() != '' && <div className="prose mb-4 p-2 shadow-lg" dangerouslySetInnerHTML={{ __html: content }} />}
         </div>
-        <p className="mb-2 flex justify-start pt-2 text-sm text-gray-500">{createdAt}</p>
-        <p className="mb-2 flex justify-start text-sm text-gray-500">By: {author}</p>
+        <p className="mb-2 flex justify-start pt-2 text-sm dark:text-gray-200">{createdAt}</p>
+        <p className="mb-2 flex justify-start text-sm dark:text-gray-200">By: {author}</p>
         <div className="flex justify-start space-x-2 pt-2">
-          <div className="flex space-x-2 text-sm text-gray-500">
+          <div className="flex space-x-2 text-sm dark:text-gray-200">
             <BookHeart /> <span>{likes}</span>
           </div>
-          <div className="flex space-x-2 text-sm text-gray-500">
+          <div className="flex space-x-2 text-sm dark:text-gray-200">
             <MessageSquareCode /> <span>{comments}</span>
           </div>
         </div>
