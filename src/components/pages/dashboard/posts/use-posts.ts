@@ -32,7 +32,6 @@ export const usePosts = () => {
 
   useEffect(() => {
     loadPosts();
-    
   }, [loadPosts]);
 
   return { posts, setPosts, isLoading, error };
