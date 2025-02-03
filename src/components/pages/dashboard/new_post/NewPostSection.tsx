@@ -4,10 +4,19 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ThemeContext } from '@/providers/ThemeProvider';
 import dynamic from 'next/dynamic';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { twJoin } from 'tailwind-merge';
 import { useCategories } from './use-categories';
 import { useNewPost } from './use-new-post';
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { useTags } from '../tags/use-tags';
 const Editor = dynamic(() => import('@tinymce/tinymce-react').then((mod) => mod.Editor), { ssr: false });
 
 type NewPostSectionProps = {
@@ -17,6 +26,7 @@ type NewPostSectionProps = {
 const NewPostSection = ({ userId }: NewPostSectionProps) => {
   const useTheme = useContext(ThemeContext);
   const { categories } = useCategories();
+  const { tags } = useTags();
   const { setValue, register, handleSubmit, watch } = useNewPost({ userId });
 
   return (
@@ -32,10 +42,9 @@ const NewPostSection = ({ userId }: NewPostSectionProps) => {
         </div>
       </div>
 
-      <div className="flex flex-col sm:w-1/3 md:w-full lg:w-full">
-        <label className="">Category</label>
+      <div className="flex space-x-2 sm:w-1/3 md:w-9/12 lg:w-full">
         <Select onValueChange={(value) => setValue('categoryId', value)}>
-          <SelectTrigger className="w-full">
+          <SelectTrigger className="w-4/5">
             <SelectValue placeholder="Category" />
           </SelectTrigger>
           <SelectContent>
@@ -46,6 +55,27 @@ const NewPostSection = ({ userId }: NewPostSectionProps) => {
             ))}
           </SelectContent>
         </Select>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild className="w-1/5">
+            <Button variant="outline">Tags</Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>Select tags</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            {tags?.tags.map((tag) => (
+              <DropdownMenuCheckboxItem
+                key={tag.id}
+                checked={(watch('tags') || []).includes(tag.id)}
+                onCheckedChange={(checked) => {
+                  const currentTags = watch('tags') || [];
+                  setValue('tags', checked ? [...currentTags, tag.id] : currentTags.filter((t) => t !== tag.id));
+                }}
+              >
+                {tag.name}
+              </DropdownMenuCheckboxItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       <div className="flex flex-col sm:w-1/3 md:w-full lg:w-full">
         <label className="">Status</label>

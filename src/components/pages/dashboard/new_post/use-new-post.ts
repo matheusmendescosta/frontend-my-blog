@@ -9,6 +9,7 @@ type FormProps = {
   content: string;
   status: 'DRAFT' | 'PUBLISHED';
   categoryId: string;
+  tags: string[];
 };
 
 type userNewPost = {
@@ -47,6 +48,7 @@ export const useNewPost = ({ userId }: userNewPost) => {
         content: data.content,
         status: data.status,
         categoryId: data.categoryId,
+        tags: data.tags,
       }),
     })
       .then((response) => {
