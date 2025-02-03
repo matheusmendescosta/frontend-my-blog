@@ -6,7 +6,7 @@ const SignInPage = () => {
   return (
     <>
       <div className="flex justify-end p-4">
-        <DarkMode />
+        <DarkMode>º</DarkMode>
       </div>
       <SignInForm />
     </>
