@@ -1,4 +1,8 @@
 export type postsDto = {
+  hasMore: boolean;
+  limit: number;
+  offset: number;
+  totalCount: number;
   posts: {
     id: string;
     title: string;
@@ -19,5 +23,9 @@ export type postsDto = {
     category: {
       name: string;
     };
+    tags: {
+      name: string;
+      slug: string;
+    }[];
   }[];
 };

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import type { MiddlewareConfig, NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 
 export async function middleware(request: NextRequest) {
@@ -19,6 +19,6 @@ export async function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-export const config = {
+export const config: MiddlewareConfig = {
   matcher: ['/', '/dashboard/:path*'],
 };
