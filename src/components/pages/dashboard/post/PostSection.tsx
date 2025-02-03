@@ -6,6 +6,7 @@ import { BookHeart } from 'lucide-react';
 import { useContext, useEffect, useRef } from 'react';
 import { twJoin } from 'tailwind-merge';
 import usePost from './use-post';
+import { useFormatter } from 'next-intl';
 
 type PostSection = {
   postId: string;
@@ -13,6 +14,7 @@ type PostSection = {
 
 const PostSection = ({ postId }: PostSection) => {
   const { post } = usePost({ postId });
+  const formatter = useFormatter();
   const theme = useContext(ThemeContext);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -71,6 +73,27 @@ const PostSection = ({ postId }: PostSection) => {
     }
   }, [post?.content, theme]);
 
+  const formattedDateCreateAt = post?.createdAt
+    ? formatter.dateTime(new Date(post.createdAt), {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      })
+    : '';
+  const formattedDateUpdatedAt = post?.updatedAt
+    ? formatter.dateTime(new Date(post.updatedAt), {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      })
+    : '';
+
   return (
     <section>
       <h1 className="text-2xl font-bold">{post?.title}</h1>
@@ -82,8 +105,8 @@ const PostSection = ({ postId }: PostSection) => {
       </div>
 
       <div className="flex flex-col justify-start">
-        <span>create at: {post?.createdAt}</span>
-        <span>update at: {post?.updatedAt}</span>
+        <span>Create at: {formattedDateCreateAt}</span>
+        <span>Update at: {formattedDateUpdatedAt}</span>
       </div>
       <div className="flex space-x-2 py-4 text-sm text-gray-500">
         <BookHeart /> <span>{post?._count.likes}</span>

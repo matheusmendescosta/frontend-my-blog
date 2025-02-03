@@ -94,12 +94,14 @@ export function AppSidebar() {
                   <DarkMode>{theme.mode == 'dark' ? <span>Light</span> : <span>Dark</span>}</DarkMode>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <a href="/dashboard/users">
-                    <span className="flex items-center space-x-2">
-                      <User2 />
-                      <p>Users</p>
-                    </span>
-                  </a>
+                  {userContext.user.role === 'ADMIN' && (
+                    <a href="/dashboard/users">
+                      <span className="flex items-center space-x-2">
+                        <User2 />
+                        <p>Users</p>
+                      </span>
+                    </a>
+                  )}
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <a href="#">

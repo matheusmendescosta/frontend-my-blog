@@ -2,6 +2,7 @@
 
 import { Badge } from '@/components/ui/badge';
 import { BookHeart, MessageSquareCode } from 'lucide-react';
+import { useFormatter } from 'next-intl';
 import Link from 'next/link';
 
 type PostsListSectionProps = {
@@ -30,6 +31,18 @@ function ArrowIcon() {
 }
 
 const PostsListSection = ({ id, title, slug, content, createdAt, likes, comments, author, category, tags }: PostsListSectionProps) => {
+  const formatter = useFormatter();
+  const formattedDateCreateAt = createdAt
+    ? formatter.dateTime(new Date(createdAt), {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+      })
+    : '';
+
   return (
     <Link key={id} href={`posts/${id}`}>
       <div className="mb-4 rounded p-4 shadow-sm">
@@ -56,7 +69,7 @@ const PostsListSection = ({ id, title, slug, content, createdAt, likes, comments
             </Badge>
           ))}
         </div>
-        <p className="mb-2 flex justify-start py-2 text-sm dark:text-gray-200">{createdAt}</p>
+        <p className="mb-2 flex justify-start py-2 text-sm dark:text-gray-200">Create at: {formattedDateCreateAt}</p>
         <p className="mb-2 flex justify-start text-sm dark:text-gray-200">By: {author}</p>
         <div className="flex justify-start space-x-2 pt-2">
           <div className="flex space-x-2 text-sm dark:text-gray-200">
