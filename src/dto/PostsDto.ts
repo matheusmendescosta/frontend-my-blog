@@ -23,5 +23,9 @@ export type postsDto = {
     category: {
       name: string;
     };
+    tags: {
+      name: string;
+      slug: string;
+    }[];
   }[];
 };

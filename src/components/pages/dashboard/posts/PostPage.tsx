@@ -15,7 +15,7 @@ import { twJoin } from 'tailwind-merge';
 
 const PostsPage = () => {
   const { posts } = usePosts();
-
+  console.log(posts);
   return (
     <>
       <PostsHeaderPage />
@@ -36,6 +36,7 @@ const PostsPage = () => {
               comments={post.comments.length}
               likes={post._count.likes}
               key={index}
+              tags={post.tags.map((tag) => tag.name)}
             />
           </div>
         ))}

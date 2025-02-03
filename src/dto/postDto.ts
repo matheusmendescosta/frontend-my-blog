@@ -22,4 +22,8 @@ export type postDto = {
   category: {
     name: string;
   };
+  tags: {
+    name: string;
+    slug: string;
+  }[];
 };

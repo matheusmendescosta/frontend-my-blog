@@ -14,6 +14,7 @@ type PostsListSectionProps = {
   comments: number;
   author: string;
   category: string;
+  tags: string[];
 };
 
 function ArrowIcon() {
@@ -28,7 +29,7 @@ function ArrowIcon() {
   );
 }
 
-const PostsListSection = ({ id, title, slug, content, createdAt, likes, comments, author, category }: PostsListSectionProps) => {
+const PostsListSection = ({ id, title, slug, content, createdAt, likes, comments, author, category, tags }: PostsListSectionProps) => {
   return (
     <Link key={id} href={`posts/${id}`}>
       <div className="mb-4 rounded p-4 shadow-sm">
@@ -37,11 +38,25 @@ const PostsListSection = ({ id, title, slug, content, createdAt, likes, comments
           <ArrowIcon />
         </div>
         <p className="pb-1 text-sm dark:text-gray-300">{slug}</p>
-        <Badge variant="outline">{category}</Badge>
+        <Badge className="border-black dark:border-white" variant="secondary">
+          {category}
+        </Badge>
         <div className="my-4 line-clamp-3 indent-2 dark:text-gray-300">
-          {content.trim() != '' && <div className="prose mb-4 p-2 shadow-lg" dangerouslySetInnerHTML={{ __html: content }} />}
+          {content.trim() != '' && (
+            <div
+              className="mb-4 rounded-sm border border-b-black p-2 dark:border-b-gray-500"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+          )}
         </div>
-        <p className="mb-2 flex justify-start pt-2 text-sm dark:text-gray-200">{createdAt}</p>
+        <div className="flex space-x-2">
+          {tags.map((tag, index) => (
+            <Badge className="border-black dark:border-white" key={index} variant="outline">
+              {tag}
+            </Badge>
+          ))}
+        </div>
+        <p className="mb-2 flex justify-start py-2 text-sm dark:text-gray-200">{createdAt}</p>
         <p className="mb-2 flex justify-start text-sm dark:text-gray-200">By: {author}</p>
         <div className="flex justify-start space-x-2 pt-2">
           <div className="flex space-x-2 text-sm dark:text-gray-200">

@@ -15,7 +15,7 @@ const PostSection = ({ postId }: PostSection) => {
   const { post } = usePost({ postId });
   const theme = useContext(ThemeContext);
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  
+
   useEffect(() => {
     if (post?.content && iframeRef.current) {
       const document = iframeRef.current.contentDocument;
@@ -88,7 +88,13 @@ const PostSection = ({ postId }: PostSection) => {
       <div className="flex space-x-2 py-4 text-sm text-gray-500">
         <BookHeart /> <span>{post?._count.likes}</span>
       </div>
-
+      <div className="flex space-x-2">
+        {post?.tags.map((tag, index) => (
+          <Badge className="border-black dark:border-white" key={index} variant="outline">
+            {tag.name}
+          </Badge>
+        ))}
+      </div>
       <div className="py-2">
         <h2>Comments</h2>
         {post?.comments && post.comments.length > 0 ? (
