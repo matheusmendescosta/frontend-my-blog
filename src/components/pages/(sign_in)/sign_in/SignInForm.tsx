@@ -74,7 +74,7 @@ export const SignInForm = () => {
                 >
                   Sign in
                 </button>
-                {/* <a
+                <a
                   href="/sign_up"
                   className={twJoin(
                     'flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white dark:bg-gray-900',
@@ -83,7 +83,7 @@ export const SignInForm = () => {
                   )}
                 >
                   Sign up
-                </a> */}
+                </a>
               </div>
             </form>
           </div>
