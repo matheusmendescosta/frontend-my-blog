@@ -36,7 +36,7 @@ export const useSignUp = () => {
     })
       .then((response) => {
         if (response.ok) {
-          router.push('/sign_in');
+          router.push('/success');
         } else {
           setIsSubmitting(false);
         }
