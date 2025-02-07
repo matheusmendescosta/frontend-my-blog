@@ -15,7 +15,7 @@ import { twJoin } from 'tailwind-merge';
 
 const PostsPage = () => {
   const { posts } = usePosts();
-  console.log(posts);
+
   return (
     <>
       <PostsHeaderPage />

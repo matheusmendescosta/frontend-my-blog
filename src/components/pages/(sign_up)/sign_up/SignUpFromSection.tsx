@@ -27,7 +27,7 @@ export default function SignUpFromSection() {
     <div>
       {isSubmitting && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="w-2/5">
+          <div className="w-3/4">
             <Progress value={progress} />
           </div>
         </div>

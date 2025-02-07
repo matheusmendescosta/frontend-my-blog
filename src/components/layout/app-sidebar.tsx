@@ -1,6 +1,6 @@
 'use client';
 
-import { BookDashed, ChartBarStacked, ChevronUp, Home, LogOut, Settings, Tag, User2, UserRound, Users, Users2Icon } from 'lucide-react';
+import { BookDashed, ChartBarStacked, ChevronUp, Home, LogOut, Settings, Tag, User2, UserRound } from 'lucide-react';
 
 import {
   Sidebar,
@@ -13,10 +13,11 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { ThemeContext } from '@/providers/ThemeProvider';
 import { UserContext } from '@/providers/UserProvider';
+import { signOut } from 'next-auth/react';
 import { useContext } from 'react';
 import DarkMode from '../ui/DarkMode';
-import { ThemeContext } from '@/providers/ThemeProvider';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu';
 
 const items = [
@@ -24,6 +25,7 @@ const items = [
     title: 'Home',
     url: '/dashboard',
     icon: Home,
+    isAdmin: true,
   },
   {
     title: 'Posts',
@@ -103,13 +105,11 @@ export function AppSidebar() {
                     </a>
                   )}
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a href="#">
-                    <span className="flex items-center space-x-2">
-                      <LogOut />
-                      <p>Sign out</p>
-                    </span>
-                  </a>
+                <DropdownMenuItem onClick={() => signOut()}>
+                  <span className="flex cursor-pointer items-center space-x-2">
+                    <LogOut />
+                    <p>Sign out</p>
+                  </span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
