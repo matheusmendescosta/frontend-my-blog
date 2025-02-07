@@ -86,8 +86,8 @@ const UserListSection = () => {
       </Table>
 
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
+        <DialogContent className="sm:h-40 sm:p-6">
+          <DialogHeader className="mt-5">
             <DialogTitle>Confirm Role Change</DialogTitle>
             <DialogDescription>
               Are you sure you want to change this users role to <strong>{pendingRole}</strong>?
@@ -95,7 +95,7 @@ const UserListSection = () => {
           </DialogHeader>
 
           <DialogFooter>
-            <Button variant="destructive" onClick={handleConfirmChange}>
+            <Button variant="secondary" className="hover:bg-green-400 dark:text-white" onClick={handleConfirmChange}>
               Save changes
             </Button>
             <Button variant="outline" onClick={handleCancel}>
