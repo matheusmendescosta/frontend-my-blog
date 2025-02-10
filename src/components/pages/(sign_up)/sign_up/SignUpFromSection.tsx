@@ -1,9 +1,9 @@
 'use client';
 
+import { Progress } from '@/components/ui/progress';
 import { useEffect, useState } from 'react';
 import { twJoin } from 'tailwind-merge';
 import { useSignUp } from './use-sign-up';
-import { Progress } from '@/components/ui/progress';
 
 export default function SignUpFromSection() {
   const { handleSubmit, register, isSubmitting } = useSignUp();

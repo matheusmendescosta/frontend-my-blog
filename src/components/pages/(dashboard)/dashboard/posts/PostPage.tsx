@@ -8,10 +8,10 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@/components/ui/pagination';
+import { twJoin } from 'tailwind-merge';
 import PostsHeaderPage from './PostsHeaderPage';
 import PostsListSection from './PostsListSection';
 import { usePosts } from './use-posts';
-import { twJoin } from 'tailwind-merge';
 
 const PostsPage = () => {
   const { posts } = usePosts();
