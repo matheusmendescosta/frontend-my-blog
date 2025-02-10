@@ -6,7 +6,6 @@ type FormProps = {
   name: string;
   email: string;
   password: string;
-  role: string;
 };
 
 export const useSignUp = () => {
@@ -31,7 +30,6 @@ export const useSignUp = () => {
         name: data.name,
         email: data.email,
         password: data.password,
-        role: 'READER',
       }),
     })
       .then((response) => {
