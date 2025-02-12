@@ -60,7 +60,9 @@ export const SignInForm = () => {
                   />
                 </div>
               </div>
+
               <Turnstile siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_SITE_KEY!} onSuccess={setCaptchaToken} />
+
               {errors.root && <p className="mt-2 text-sm text-red-600 dark:text-red-500">{errors.root.message}</p>}
               <div className="space-y-2">
                 <button
