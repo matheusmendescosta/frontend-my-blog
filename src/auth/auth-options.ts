@@ -5,7 +5,7 @@ export const authOptions: AuthOptions = {
   providers: [
     Credentials({
       name: 'Credentials',
-      credentials: { email: {}, password: {} },
+      credentials: { email: {}, password: {}, captchaToken: {} },
       authorize: async (credentials) => {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth`, {
           method: 'POST',
@@ -15,6 +15,7 @@ export const authOptions: AuthOptions = {
           body: JSON.stringify({
             email: credentials?.email,
             password: credentials?.password,
+            captchaToken: credentials?.captchaToken,
           }),
         });
         const user = await response.json();
