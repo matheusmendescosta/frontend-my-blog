@@ -1,11 +1,12 @@
 'use client';
 
+import { Turnstile } from '@marsidev/react-turnstile';
+import Image from 'next/image';
 import { twJoin } from 'tailwind-merge';
 import { useSignIn } from './use-sign-in';
-import Image from 'next/image';
 
 export const SignInForm = () => {
-  const { handleSubmit, register, isSubmitting, errors } = useSignIn();
+  const { handleSubmit, register, isSubmitting, errors, setCaptchaToken } = useSignIn();
 
   return (
     <>
@@ -40,7 +41,6 @@ export const SignInForm = () => {
                   />
                 </div>
               </div>
-
               <div>
                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                   Password
@@ -60,6 +60,9 @@ export const SignInForm = () => {
                   />
                 </div>
               </div>
+
+              <Turnstile siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_SITE_KEY!} onSuccess={setCaptchaToken} />
+
               {errors.root && <p className="mt-2 text-sm text-red-600 dark:text-red-500">{errors.root.message}</p>}
               <div className="space-y-2">
                 <button

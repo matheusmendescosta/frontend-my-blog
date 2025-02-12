@@ -10,7 +10,10 @@ type FormProps = {
 
 export const useSignIn = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
   const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -23,11 +26,17 @@ export const useSignIn = () => {
   }, []);
 
   const submitSignIn = async (data: FormProps) => {
+    if (!captchaToken) {
+      setError('root', { message: 'Please complete the captcha verification' });
+      return;
+    }
+
     setIsSubmitting(true);
 
     signIn('credentials', {
       email: data.email,
       password: data.password,
+      captchaToken,
       redirect: false,
     }).then((response) => {
       if (response?.ok) {
@@ -36,6 +45,7 @@ export const useSignIn = () => {
         if (response?.error === 'CredentialsSignin') {
           setError('root', { message: 'Invalid credentials' });
         }
+        setError('root', { message: 'Invalid credentials' });
         setIsSubmitting(false);
       }
     });
@@ -46,5 +56,6 @@ export const useSignIn = () => {
     register,
     handleSubmit: handleSubmit(submitSignIn),
     errors,
+    setCaptchaToken,
   };
 };
