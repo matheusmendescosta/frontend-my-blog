@@ -3,7 +3,7 @@ import { MoonIcon, SunMedium } from 'lucide-react';
 import { ReactNode, useContext } from 'react';
 
 type DarkModeProps = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 const DarkMode = ({ children }: DarkModeProps) => {

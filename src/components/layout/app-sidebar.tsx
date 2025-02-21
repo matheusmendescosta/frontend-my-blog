@@ -17,7 +17,7 @@ import { ThemeContext } from '@/providers/ThemeProvider';
 import { UserContext } from '@/providers/UserProvider';
 import { signOut } from 'next-auth/react';
 import { useContext } from 'react';
-import DarkMode from '../ui/DarkMode';
+import DarkMode from '../ui/dark-mode';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu';
 
 const items = [
