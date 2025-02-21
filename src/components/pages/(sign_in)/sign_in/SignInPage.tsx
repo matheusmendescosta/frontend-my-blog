@@ -1,12 +1,12 @@
 'use client';
-import DarkMode from '@/components/ui/DarkMode';
+import DarkMode from '@/components/ui/dark-mode';
 import { SignInForm } from './SignInForm';
 
 const SignInPage = () => {
   return (
     <>
       <div className="flex justify-end p-4">
-        <DarkMode>º</DarkMode>
+        <DarkMode />
       </div>
       <SignInForm />
     </>
