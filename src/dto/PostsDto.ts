@@ -15,8 +15,8 @@ export type postsDto = {
     categoryId: string;
     _count: {
       likes: number;
+      comments: number;
     };
-    comments: [];
     author: {
       name: string;
     };
