@@ -1,6 +1,6 @@
 'use client';
 
-import { BookDashed, ChartBarStacked, ChevronUp, Home, LogOut, Settings, Tag, User2, UserRound } from 'lucide-react';
+import { BookCheck, BookDashed, ChartBarStacked, ChevronUp, Home, LogOut, Settings, Tag, User2, UserRound } from 'lucide-react';
 
 import {
   Sidebar,
@@ -31,6 +31,11 @@ const items = [
     title: 'Posts',
     url: '/dashboard/posts',
     icon: BookDashed,
+  },
+  {
+    title: 'My Posts',
+    url: '/dashboard/posts/my_posts',
+    icon: BookCheck,
   },
   {
     title: 'Tags',
