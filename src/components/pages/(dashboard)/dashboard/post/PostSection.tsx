@@ -5,7 +5,7 @@ import { ThemeContext } from '@/providers/ThemeProvider';
 import { BookHeart } from 'lucide-react';
 import { useContext, useEffect, useRef } from 'react';
 import { twJoin } from 'tailwind-merge';
-import usePost from './use-post';
+import usePost from '../use-post';
 import { useFormatter } from 'next-intl';
 
 type PostSection = {
