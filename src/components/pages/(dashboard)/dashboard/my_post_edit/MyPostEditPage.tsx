@@ -1,17 +1,12 @@
 'use client';
-import usePost from '../use-post';
+import MyPostEditForm from './MyPostEditForm';
 
 type MyPostEditPageProps = {
   postId: string;
 };
 
 const MyPostEditPage = ({ postId }: MyPostEditPageProps) => {
-  const { post } = usePost({ postId });
-  return (
-    <div>
-      {post?.id} {postId}
-    </div>
-  );
+  return <MyPostEditForm postId={postId} />;
 };
 
 export default MyPostEditPage;
