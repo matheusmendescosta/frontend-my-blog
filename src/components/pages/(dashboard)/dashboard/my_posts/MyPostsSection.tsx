@@ -16,7 +16,7 @@ const MyPostsSection = () => {
           <h2 className="text-xl font-semibold">{post.title}</h2>
           <h3 className="text-sm font-semibold">{post.slug}</h3>
           <div>
-            <Badge>TI</Badge>
+            <Badge>{post.status}</Badge>
           </div>
           <a href={`/dashboard/posts/my_posts/${post.id}/edit`} className="text-blue-500 hover:underline">
             Edit post

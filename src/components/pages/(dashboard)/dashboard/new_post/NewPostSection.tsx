@@ -1,13 +1,6 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ThemeContext } from '@/providers/ThemeProvider';
-import dynamic from 'next/dynamic';
-import { useContext, useState } from 'react';
-import { twJoin } from 'tailwind-merge';
-import { useCategories } from './use-categories';
-import { useNewPost } from './use-new-post';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -16,7 +9,14 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { ThemeContext } from '@/providers/ThemeProvider';
+import dynamic from 'next/dynamic';
+import { useContext } from 'react';
+import { twJoin } from 'tailwind-merge';
 import { useTags } from '../tags/use-tags';
+import { useCategories } from './use-categories';
+import { useNewPost } from './use-new-post';
 const Editor = dynamic(() => import('@tinymce/tinymce-react').then((mod) => mod.Editor), { ssr: false });
 
 type NewPostSectionProps = {

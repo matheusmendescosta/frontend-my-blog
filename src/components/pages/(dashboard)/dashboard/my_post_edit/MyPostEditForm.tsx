@@ -1,33 +1,32 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
-import { useContext, useEffect } from 'react';
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
-  DropdownMenuTrigger,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuCheckboxItem,
+  DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
-import { Editor } from '@tinymce/tinymce-react';
-import usePost from '../use-post';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ThemeContext } from '@/providers/ThemeProvider';
-import { useTags } from '../tags/use-tags';
+import dynamic from 'next/dynamic';
+import { useContext } from 'react';
 import { useCategories } from '../categories/use-categories';
+import { useTags } from '../tags/use-tags';
 import useEditMyPostEdit from './use-edit-my-post-edit';
+const Editor = dynamic(() => import('@tinymce/tinymce-react').then((mod) => mod.Editor), { ssr: false });
 
 type MyPostEditFormProps = {
   postId: string;
 };
 
 const MyPostEditForm = ({ postId }: MyPostEditFormProps) => {
+  const useTheme = useContext(ThemeContext);
   const { handleSubmit, errors, isSubmitting, register, setValue, watch, post } = useEditMyPostEdit({ postId });
   const { categories } = useCategories();
   const { tags } = useTags();
-  const useTheme = useContext(ThemeContext);
 
   return (
     <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
@@ -91,7 +90,6 @@ const MyPostEditForm = ({ postId }: MyPostEditFormProps) => {
           </SelectContent>
         </Select>
       </div>
-
       <Editor
         apiKey={process.env.NEXT_PUBLIC_TINYMCE_KEY}
         plugins={[
@@ -123,7 +121,7 @@ const MyPostEditForm = ({ postId }: MyPostEditFormProps) => {
       />
 
       <div>
-        <Button variant="secondary" type="submit">
+        <Button variant="secondary" type="submit" disabled={isSubmitting}>
           Save
         </Button>
       </div>
