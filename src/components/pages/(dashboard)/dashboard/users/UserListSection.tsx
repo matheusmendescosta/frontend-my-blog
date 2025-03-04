@@ -86,7 +86,7 @@ const UserListSection = () => {
       </Table>
 
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="sm:h-40 sm:p-6">
+        <DialogContent className="sm:h-40 sm:p-6" aria-describedby='confirm role change'>
           <DialogHeader className="mt-5">
             <DialogTitle>Confirm Role Change</DialogTitle>
             <DialogDescription>

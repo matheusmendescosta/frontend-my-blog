@@ -73,7 +73,7 @@ export const SignInForm = () => {
                   className={twJoin(
                     'flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white dark:bg-gray-900',
                     'shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:hover:bg-gray-600',
-                    'bg-slate-600 hover:bg-slate-700 focus-visible:outline-indigo-600',
+                    'bg-blue-600 hover:bg-blue-700 focus-visible:outline-indigo-600',
                     isSubmitting && 'cursor-not-allowed opacity-50'
                   )}
                 >
@@ -93,9 +93,9 @@ export const SignInForm = () => {
                 <a
                   href="/sign_up"
                   className={twJoin(
-                    'flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white dark:bg-gray-900',
+                    'flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white',
                     'shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:hover:bg-gray-600',
-                    'bg-slate-600 hover:bg-slate-700 focus-visible:outline-indigo-600'
+                    'bg-blue-600 hover:bg-blue-700 focus-visible:outline-indigo-600 dark:bg-gray-900'
                   )}
                 >
                   {isSubmitting ? (

@@ -23,6 +23,7 @@ export type postDto = {
     name: string;
   };
   tags: {
+    id: string;
     name: string;
     slug: string;
   }[];
