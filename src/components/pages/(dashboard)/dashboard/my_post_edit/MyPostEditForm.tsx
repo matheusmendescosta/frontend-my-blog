@@ -116,7 +116,8 @@ const MyPostEditForm = ({ postId }: MyPostEditFormProps) => {
           width: 'auto',
           menubar: true,
           toolbar:
-            'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image | media | code | help',
+            'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | ' +
+            'link image | media | code | help',
         }}
       />
 
