@@ -21,10 +21,6 @@ export const useSignIn = () => {
     formState: { errors },
   } = useForm<FormProps>();
 
-  useEffect(() => {
-    signOut({ redirect: false });
-  }, []);
-
   const submitSignIn = async (data: FormProps) => {
     if (!captchaToken) {
       setError('root', { message: 'Please complete the captcha verification' });
@@ -33,22 +29,21 @@ export const useSignIn = () => {
 
     setIsSubmitting(true);
 
-    signIn('credentials', {
+    await signOut({ redirect: false });
+
+    const response = await signIn('credentials', {
       email: data.email,
       password: data.password,
       captchaToken,
       redirect: false,
-    }).then((response) => {
-      if (response?.ok) {
-        router.push('/dashboard');
-      } else {
-        if (response?.error === 'CredentialsSignin') {
-          setError('root', { message: 'Invalid credentials' });
-        }
-        setError('root', { message: 'Invalid credentials' });
-        setIsSubmitting(false);
-      }
     });
+
+    if (response?.ok) {
+      router.push('/dashboard');
+    } else {
+      setError('root', { message: 'Invalid credentials' });
+      setIsSubmitting(false);
+    }
   };
 
   return {
