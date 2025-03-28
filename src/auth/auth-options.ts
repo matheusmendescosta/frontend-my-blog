@@ -23,7 +23,7 @@ export const authOptions: AuthOptions = {
         if (user && response.ok) {
           return user;
         }
-
+        console.log(user);
         return null;
       },
     }),
