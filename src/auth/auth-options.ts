@@ -1,6 +1,7 @@
 import { AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 
+//todo check cookie
 export const authOptions: AuthOptions = {
   providers: [
     Credentials({
@@ -23,7 +24,7 @@ export const authOptions: AuthOptions = {
         if (user && response.ok) {
           return user;
         }
-
+        console.log(user);
         return null;
       },
     }),
